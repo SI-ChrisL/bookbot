@@ -16,9 +16,14 @@ def get_num_characters(text):
     return char_counts
 
 def get_sorted_dictionary(counts):
+
+    def sort_on(items):
+        return items["num"]
+
     sorted_counts = []
     for key in counts:
         key_value = counts[key]
         sub_directory = {"char": key, "num": key_value}
         sorted_counts.append(sub_directory)
+    sorted_counts.sort(reverse=True, key=sort_on)
     return sorted_counts
